@@ -1,4 +1,4 @@
-
+</div><br><br>
      <footer class="text-center" id="footer"> &copy; Copyright 2019 EWsetiawan's Boutique</footer>
 <script>
   jQuery(window).scroll(function(){
@@ -14,8 +14,25 @@
       jQuery('#fore-flower').css({
         "transform":"translate(0px, -"+vscroll/2+"px)"
       });
-
         });
+
+function detailsmodal(id){
+  var data = {"id" : id};
+  jQuery.ajx({
+    url: '/tutorial/includes/detailsmodal.php',
+    method : "post",
+    data : data,
+    success: function(data){
+      jQuery('body').append(data);
+      jQuery('#details-modal').modal('toggle');
+    },
+    error: function(){
+      alert("something went wrong!");
+    }
+  });
+
+}
+
 </script>
 
   </body>
