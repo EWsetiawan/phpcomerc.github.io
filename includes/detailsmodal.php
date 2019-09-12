@@ -15,13 +15,13 @@ $size_array = explode(',', $sizestring);
 <!-- Details Light Box -->
 <?php ob_start(); ?>
 
-  <div class="modal fade detail-1" id="details-modal" tabindex="-1" role="dialog" aria-labelledby="details-1" aria-hidden="true" data-backdrop="static" data-keyboard="false" >
+  <div class="modal fade detail-1" id="details-modal" tabindex="-1" role="dialog" aria-labelledby="details-1" aria-hidden="true" data-backdrop="static" data-keyboard="false" data-toggle="modal">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
         <button class="close" type="button" onclick= "closeModal()" aria-label="close"><span aria-hidden="true">&times; </span></button>
         <h4 class="modal-title text-center"><?= $product['title']; ?></h4>
-        <?php   var_dump($size_array);?>
+        
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -44,7 +44,7 @@ $size_array = explode(',', $sizestring);
                     <input type="text" class="form-control" id="quantity" name="quantity">
                   </div> <div class="col-xs-9"></div>
                   <p>Available: 3</p>
-                </div><br><br>
+                </div>
                 <div class="form-group">
                   <label for="size">Size:</label>
                   <select name="size" id="size" class="form-control">
@@ -74,7 +74,7 @@ function closeModal(){
     jQuery('#details-modal').modal('hide');
     setTimeout(function(){
       jQuery('#details-modal').remove();
-      jQuery('.modal-backdrop'),remove();
+      jQuery('.modal-backdrop').remove();
     },500);
 }
   </script>
